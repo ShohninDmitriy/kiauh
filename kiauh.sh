@@ -43,12 +43,12 @@ INI_FILE=${HOME}/.kiauh.ini
 BACKUP_DIR=${HOME}/kiauh-backups
 
 ### set github repos
-KLIPPER_REPO=https://github.com/KevinOConnor/klipper.git
+KLIPPER_REPO=https://github.com/ShohninDmitriy/klipper.git
 ARKSINE_REPO=https://github.com/Arksine/klipper.git
 DMBUTYUGIN_REPO=https://github.com/dmbutyugin/klipper.git
 DWC2FK_REPO=https://github.com/Stephan3/dwc2-for-klipper-socket.git
 MOONRAKER_REPO=https://github.com/Arksine/moonraker.git
-KLIPPERSCREEN_REPO=https://github.com/jordanruthe/KlipperScreen.git
+KLIPPERSCREEN_REPO=https://github.com/ShohninDmitriy/KlipperScreen.git
 #branches
 BRANCH_SCURVE_SMOOTHING=dmbutyugin/scurve-smoothing
 BRANCH_SCURVE_SHAPING=dmbutyugin/scurve-shaping
