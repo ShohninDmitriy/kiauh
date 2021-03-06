@@ -263,8 +263,8 @@ path: ~/fluidd
 
 #[update_manager client KlipperScreen]
 #type: git_repo
-#path: /home/pi/KlipperScreen
-#env: /home/pi/.KlipperScreen-env/bin/python
+#path: /home/${HOME}/KlipperScreen
+#env: /home/${HOME}/.KlipperScreen-env/bin/python
 #origin: https://github.com/ShohninDmitriy/KlipperScreen.git
 #requirements: scripts/KlipperScreen-requirements.txt
 #venv_args: -p python3
@@ -321,8 +321,8 @@ path: ~/fluidd
 
 #[update_manager client KlipperScreen]
 #type: git_repo
-#path: /home/pi/KlipperScreen
-#env: /home/pi/.KlipperScreen-env/bin/python
+#path: /home/${HOME}/KlipperScreen
+#env: /home/${HOME}/.KlipperScreen-env/bin/python
 #origin: https://github.com/ShohninDmitriy/KlipperScreen.git
 #requirements: scripts/KlipperScreen-requirements.txt
 #venv_args: -p python3
