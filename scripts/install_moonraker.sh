@@ -226,6 +226,9 @@ port: $PORT
 enable_debug_logging: True
 config_path: $PRINTER_CFG_LOC
 klippy_uds_address: /tmp/klippy_uds
+max_upload_size: 400
+temperature_store_size: 2400
+gcode_store_size:  2000
 
 [authorization]
 enabled: True
@@ -260,10 +263,11 @@ path: ~/fluidd
 
 #[update_manager client KlipperScreen]
 #type: git_repo
-#path: /home/${HOME}/KlipperScreen
-#origin: https://github.com/jordanruthe/KlipperScreen.git
-#env: /home/${HOME}/.KlipperScreen-env/bin/python
+#path: /home/pi/KlipperScreen
+#env: /home/pi/.KlipperScreen-env/bin/python
+#origin: https://github.com/ShohninDmitriy/KlipperScreen.git
 #requirements: scripts/KlipperScreen-requirements.txt
+#venv_args: -p python3
 #install_script: scripts/KlipperScreen-install.sh
 MOONRAKERCONF
 }
@@ -279,6 +283,9 @@ port: $PORT
 enable_debug_logging: True
 config_path: $PRINTER_CFG_LOC/printer_$INSTANCE
 klippy_uds_address: /tmp/klippy_uds-$INSTANCE
+max_upload_size: 400
+temperature_store_size: 2400
+gcode_store_size:  2000
 
 [authorization]
 enabled: True
@@ -314,10 +321,11 @@ path: ~/fluidd
 
 #[update_manager client KlipperScreen]
 #type: git_repo
-#path: /home/${USER}/KlipperScreen
-#origin: https://github.com/jordanruthe/KlipperScreen.git
-#env: /home/${USER}/.KlipperScreen-env/bin/python
+#path: /home/pi/KlipperScreen
+#env: /home/pi/.KlipperScreen-env/bin/python
+#origin: https://github.com/ShohninDmitriy/KlipperScreen.git
 #requirements: scripts/KlipperScreen-requirements.txt
+#venv_args: -p python3
 #install_script: scripts/KlipperScreen-install.sh
 MOONRAKERCONF
 }
