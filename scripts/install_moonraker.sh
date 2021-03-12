@@ -223,7 +223,7 @@ create_single_moonraker_conf(){
 [server]
 host: 0.0.0.0
 port: $PORT
-enable_debug_logging: True
+enable_debug_logging: False
 config_path: $PRINTER_CFG_LOC
 klippy_uds_address: /tmp/klippy_uds
 max_upload_size: 400
@@ -239,13 +239,9 @@ trusted_clients:
     ::1/128
     FE80::/10
 cors_domains:
-    http://*.local
-    http://my.mainsail.xyz
-    https://my.mainsail.xyz
-    http://app.fluidd.xyz
-    https://app.fluidd.xyz
-    http://$HOSTNAME
-    http://$HOSTNAME:*
+    *.local
+    *://my.mainsail.xyz
+    *://app.fluidd.xyz
 
 [octoprint_compat]
 
@@ -280,7 +276,7 @@ create_multi_moonraker_conf(){
 [server]
 host: 0.0.0.0
 port: $PORT
-enable_debug_logging: True
+enable_debug_logging: False
 config_path: $PRINTER_CFG_LOC/printer_$INSTANCE
 klippy_uds_address: /tmp/klippy_uds-$INSTANCE
 max_upload_size: 400
@@ -296,14 +292,9 @@ trusted_clients:
     ::1/128
     FE80::/10
 cors_domains:
-    http://*.local
-    https://*.local
-    http://my.mainsail.xyz
-    https://my.mainsail.xyz
-    http://app.fluidd.xyz
-    https://app.fluidd.xyz
-    http://$HOSTNAME
-    http://$HOSTNAME:*
+    *.local
+    *://my.mainsail.xyz
+    *://app.fluidd.xyz
 
 [octoprint_compat]
 
