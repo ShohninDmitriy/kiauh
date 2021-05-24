@@ -11,6 +11,7 @@ klipper_setup_dialog(){
   SYSTEMD=$(ls /etc/systemd/system | grep -E "^klipper(\-[[:digit:]]+)?\.service$")
 
   if [ ! -z "$INITD" ] || [ ! -z "$SYSTEMD" ]; then
+    echo "${red}$INITD${default}" && echo "${red}$SYSTEMD${default}"
     ERROR_MSG="At least one Klipper service is already installed!\n Please remove Klipper first, before installing it again." && return 0
   fi
 
@@ -18,19 +19,19 @@ klipper_setup_dialog(){
   check_klipper_cfg_path
 
   ### ask for amount of instances to create
-  while true; do
+  INSTANCE_COUNT=""
+  while [[ ! ($INSTANCE_COUNT =~ ^[1-9]+$) ]]; do
+    echo
+    read -p "${cyan}###### Amount of Klipper instances to set up:${default} " INSTANCE_COUNT
+    if [[ ! ($INSTANCE_COUNT =~ ^[1-9]+$) ]]; then
+      warn_msg "Invalid Input!" && echo
+    else
       echo
-      read -p "${cyan}###### How many Klipper instances do you want to set up?:${default} " INSTANCE_COUNT
-      echo
-      if [ $INSTANCE_COUNT == 1 ]; then
-        read -p "${cyan}###### Create $INSTANCE_COUNT single instance? (Y/n):${default} " yn
-      else
-        read -p "${cyan}###### Create $INSTANCE_COUNT instances? (Y/n):${default} " yn
-      fi
+      read -p "${cyan}###### Install $INSTANCE_COUNT instance(s)? (Y/n):${default} " yn
       case "$yn" in
         Y|y|Yes|yes|"")
           echo -e "###### > Yes"
-          status_msg "Creating $INSTANCE_COUNT Klipper instances ..."
+          status_msg "Installing $INSTANCE_COUNT Klipper instance(s) ..."
           klipper_setup
           break;;
         N|n|No|no)
@@ -41,7 +42,8 @@ klipper_setup_dialog(){
         *)
           print_unkown_cmd
           print_msg && clear_msg;;
-    esac
+      esac
+    fi
   done
 }
 
@@ -387,7 +389,7 @@ get_mcu_id(){
   bottom_border
   while true; do
     echo -e "${cyan}"
-    read -p "###### Press any key to continue ... " yn
+    read -p "###### Press ENTER to continue ... " yn
     echo -e "${default}"
     case "$yn" in
       *)
