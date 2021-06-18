@@ -56,7 +56,11 @@ install_klipper_packages(){
   unset PKGARR
   for PKG in $PKGLIST; do PKGARR+=($PKG); done
   ### add dbus requirement for DietPi distro
-  PKGARR+=("dbus")
+  if [ -e "/boot/dietpi" ]; then
+    PKGARR+=("dbus")
+  fi
+
+  ### display dependencies to user
   echo "${cyan}${PKGARR[@]}${default}"
 
   ### Update system package info
@@ -286,18 +290,18 @@ select_mcu_id(){
 }
 
 flash_mcu(){
-  klipper_service "stop"
+  do_action_service "stop" "klipper"
   if ! make flash FLASH_DEVICE="${mcu_list[$mcu_index]}" ; then
     warn_msg "Flashing failed!"
     warn_msg "Please read the console output above!"
   else
     ok_msg "Flashing successfull!"
   fi
-  klipper_service "start"
+  do_action_service "start" "klipper"
 }
 
 flash_mcu_sd(){
-  klipper_service "stop"
+  do_action_service "stop" "klipper"
 
   ### write each supported board to the array to make it selectable
   board_list=()
@@ -362,7 +366,7 @@ flash_mcu_sd(){
     ok_msg "Flashing successfull!"
   fi
 
-  klipper_service "start"
+  do_action_service "start" "klipper"
 }
 
 build_fw(){
