@@ -1,5 +1,5 @@
-MAINSAIL_REPO_API="https://api.github.com/repos/mainsail-crew/mainsail/releases"
-FLUIDD_REPO_API="https://api.github.com/repos/fluidd-core/fluidd/releases"
+MAINSAIL_REPO_API="https://api.github.com/repos/ShohninDmitriy/mainsail/releases"
+FLUIDD_REPO_API="https://api.github.com/repos/ShohninDmitriy/fluidd/releases"
 
 system_check_webui(){
   ### check system for installed moonraker service
