@@ -33,29 +33,29 @@ function set_globals() {
   #================== KLIPPER ===================#
   KLIPPY_ENV="${HOME}/klippy-env"
   KLIPPER_DIR="${HOME}/klipper"
-  KLIPPER_REPO="https://github.com/Klipper3d/klipper.git"
+  KLIPPER_REPO="https://github.com/ShohninDmitriy/klipper.git"
   KLIPPER_LOGS="${HOME}/klipper_logs"
   KLIPPER_CONFIG="$(get_klipper_cfg_dir)" # default: ${HOME}/klipper_config
 
   #================= MOONRAKER ==================#
   MOONRAKER_ENV="${HOME}/moonraker-env"
   MOONRAKER_DIR="${HOME}/moonraker"
-  MOONRAKER_REPO="https://github.com/Arksine/moonraker.git"
+  MOONRAKER_REPO="https://github.com/ShohninDmitriy/moonraker.git"
 
   #================= MAINSAIL ===================#
   MAINSAIL_DIR="${HOME}/mainsail"
-  MAINSAIL_REPO_API="https://api.github.com/repos/mainsail-crew/mainsail/releases"
+  MAINSAIL_REPO_API="https://api.github.com/repos/ShohninDmitriy/mainsail/releases"
   MAINSAIL_TAGS="https://api.github.com/repos/mainsail-crew/mainsail/tags"
 
   #================== FLUIDD ====================#
   FLUIDD_DIR="${HOME}/fluidd"
-  FLUIDD_REPO_API="https://api.github.com/repos/fluidd-core/fluidd/releases"
+  FLUIDD_REPO_API="https://api.github.com/repos/ShohninDmitriy/fluidd/releases"
   FLUIDD_TAGS="https://api.github.com/repos/fluidd-core/fluidd/tags"
 
   #=============== KLIPPERSCREEN ================#
   KLIPPERSCREEN_ENV="${HOME}/.KlipperScreen-env"
   KLIPPERSCREEN_DIR="${HOME}/KlipperScreen"
-  KLIPPERSCREEN_REPO="https://github.com/jordanruthe/KlipperScreen.git"
+  KLIPPERSCREEN_REPO="https://github.com/ShohninDmitriy/KlipperScreen.git"
 
   #========== MOONRAKER-TELEGRAM-BOT ============#
   TELEGRAM_BOT_ENV="${HOME}/moonraker-telegram-bot-env"
