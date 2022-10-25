@@ -55,17 +55,11 @@ function install_menu() {
       4)
         do_action "install_fluidd" "install_ui";;
       5)
-        #do_action "install_klipperscreen" "install_ui";;
-        clear && print_header
-        print_error "Function currently disabled! Sorry!"
-        install_ui;;
+        do_action "install_klipperscreen" "install_ui";;
       6)
         do_action "octoprint_setup_dialog" "install_ui";;
       7)
-        #do_action "install_pgc_for_klipper" "install_ui";;
-        clear && print_header
-        print_error "Function currently disabled! Sorry!"
-        install_ui;;
+        do_action "install_pgc_for_klipper" "install_ui";;
       8)
         #do_action "telegram_bot_setup_dialog" "install_ui";;
         clear && print_header
