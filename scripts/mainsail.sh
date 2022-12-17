@@ -509,11 +509,11 @@ function get_mainsail_download_url() {
 
   ### latest download url including pre-releases (alpha, beta, rc)
   latest_tag=$(echo "${tags}" | head -1)
-  latest_url="https://github.com/ShohninDmitriy/mainsail/releases/download/${latest_tag}/mainsail.zip"
+  latest_url="https://github.com/mainsail-crew/mainsail/releases/download/${latest_tag}/mainsail.zip"
 
   ### get stable mainsail download url
   stable_tag=$(echo "${tags}" | grep -E "^v([0-9]+\.?){3}$" | head -1)
-  stable_url="https://github.com/ShohninDmitriy/mainsail/releases/download/${stable_tag}/mainsail.zip"
+  stable_url="https://github.com/mainsail-crew/mainsail/releases/download/${stable_tag}/mainsail.zip"
 
   read_kiauh_ini "${FUNCNAME[0]}"
   if [[ ${mainsail_install_unstable} == "true" ]]; then
