@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 #=======================================================================#
-# Copyright (C) 2020 - 2022 Dominik Willner <th33xitus@gmail.com>       #
+# Copyright (C) 2020 - 2023 Dominik Willner <th33xitus@gmail.com>       #
 #                                                                       #
 # This file is part of KIAUH - Klipper Installation And Update Helper   #
 # https://github.com/th33xitus/kiauh                                    #
@@ -25,10 +25,12 @@ function check_for_backup_dir() {
 }
 
 function backup_before_update() {
-  read_kiauh_ini "${FUNCNAME[0]}"
-  local state="${backup_before_update}"
-  [[ ${state} = "false" ]] && return
-  backup_"${1}"
+  echo ""
+  ### todo backup functions need to be updated for new folder structure
+#  read_kiauh_ini "${FUNCNAME[0]}"
+#  local state="${backup_before_update}"
+#  [[ ${state} = "false" ]] && return
+#  backup_"${1}"
 }
 
 function backup_klipper_config_dir() {

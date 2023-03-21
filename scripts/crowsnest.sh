@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 #=======================================================================#
-# Copyright (C) 2020 - 2022 Dominik Willner <th33xitus@gmail.com>       #
+# Copyright (C) 2020 - 2023 Dominik Willner <th33xitus@gmail.com>       #
 #                                                                       #
 # This file is part of KIAUH - Klipper Installation And Update Helper   #
 # https://github.com/th33xitus/kiauh                                    #
@@ -105,7 +105,7 @@ function install_crowsnest(){
   pushd "${HOME}/crowsnest" &> /dev/null || exit 1
   title_msg "Installer will prompt you for sudo password!"
   status_msg "Launching crowsnest installer ..."
-  if ! sudo make install; then
+  if ! sudo make install BASE_USER=$USER; then
     error_msg "Something went wrong! Please try again..."
     exit 1
   fi
