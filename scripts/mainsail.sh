@@ -16,10 +16,24 @@ set -e
 #===================================================#
 
 function install_mainsail() {
-  ### exit early if moonraker not found
   if [[ -z $(moonraker_systemd) ]]; then
-    local error="Moonraker not installed! Please install Moonraker first!"
-    print_error "${error}" && return
+    local error="Moonraker not installed! It's recommended to install Moonraker first!"
+    print_error "${error}"
+    while true; do
+      local yn
+      read -p "${cyan}###### Proceed to install Mainsail without installing Moonraker? (y/N):${white} " yn
+      case "${yn}" in
+        Y|y|Yes|yes)
+          select_msg "Yes"
+          break;;
+        N|n|No|no|"")
+          select_msg "No"
+          abort_msg "Exiting Mainsail setup ...\n"
+          return;;
+        *)
+          error_msg "Invalid Input!";;
+      esac
+    done
   fi
 
   ### checking dependencies
@@ -157,6 +171,7 @@ function download_mainsail_macros() {
 }
 
 function download_mainsail() {
+  local services
   local url
   url=$(get_mainsail_download_url)
 
@@ -179,8 +194,9 @@ function download_mainsail() {
     exit 1
   fi
 
-  ### check for moonraker multi-instance and if multi-instance was found, enable mainsails remoteMode
-  if [[ $(moonraker_systemd | wc -w) -gt 1 ]]; then
+  ### check for moonraker multi-instance and if no-instance or multi-instance was found, enable mainsails remoteMode
+  services=$(moonraker_systemd)
+  if [[ ( -z "${services}" ) || ( $(echo "${services}" | wc -w) -gt 1 ) ]]; then
     enable_mainsail_remotemode
   fi
 }
@@ -318,9 +334,9 @@ function get_local_mainsail_version() {
 function get_remote_mainsail_version() {
   [[ ! $(dpkg-query -f'${Status}' --show curl 2>/dev/null) = *\ installed ]] && return
 
-  local version
-  version=$(get_mainsail_download_url | rev | cut -d"/" -f2 | rev)
-  echo "${version}"
+  local tags
+  tags=$(curl -s "https://api.github.com/repos/mainsail-crew/mainsail/tags" | grep "name" | cut -d'"' -f4)
+  echo "${tags}" | head -1
 }
 
 function compare_mainsail_versions() {
