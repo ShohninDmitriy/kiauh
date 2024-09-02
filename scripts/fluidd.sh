@@ -87,7 +87,7 @@ function install_fluidd_macros() {
     echo -e "| have Fluidd fully functional and working.             |"
     blank_line
     echo -e "| The recommended macros for Fluidd can be found here:  |"
-    echo -e "| https://github.com/fluidd-core/fluidd-config           |"
+    echo -e "| https://github.com/ShohninDmitriy/fluidd-config           |"
     blank_line
     echo -e "| If you already use these macros skip this step.       |"
     echo -e "| Otherwise you should consider to answer with 'yes' to |"
@@ -334,7 +334,7 @@ function get_remote_fluidd_version() {
   [[ ! $(dpkg-query -f'${Status}' --show curl 2>/dev/null) = *\ installed ]] && return
 
   local tags
-  tags=$(curl -s "https://api.github.com/repos/fluidd-core/fluidd/tags" | grep "name" | cut -d'"' -f4)
+  tags=$(curl -s "https://api.github.com/repos/ShohninDmitriy/fluidd/tags" | grep "name" | cut -d'"' -f4)
   echo "${tags}" | head -1
 }
 
