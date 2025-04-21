@@ -6,27 +6,11 @@
 #                                                                         #
 #  This file may be distributed under the terms of the GNU GPLv3 license  #
 # ======================================================================= #
-from __future__ import annotations
+from pathlib import Path
 
-from dataclasses import dataclass
-from typing import Dict, Literal
-
-StatusText = Literal["Installed", "Not installed", "Incomplete"]
-StatusCode = Literal[0, 1, 2]
-StatusMap: Dict[StatusCode, StatusText] = {
-    0: "Not installed",
-    1: "Incomplete",
-    2: "Installed",
-}
-
-
-@dataclass
-class ComponentStatus:
-    status: StatusCode
-    owner: str | None = None
-    repo: str | None = None
-    repo_url: str | None = None
-    branch: str = ""
-    local: str | None = None
-    remote: str | None = None
-    instances: int | None = None
+MODULE_PATH = Path(__file__).resolve().parent
+SPOOLMAN_DOCKER_IMAGE = "ghcr.io/donkie/spoolman:latest"
+SPOOLMAN_DIR = Path.home().joinpath("spoolman")
+SPOOLMAN_DATA_DIR = SPOOLMAN_DIR.joinpath("data")
+SPOOLMAN_COMPOSE_FILE = SPOOLMAN_DIR.joinpath("docker-compose.yml")
+SPOOLMAN_DEFAULT_PORT = 7912
