@@ -15,6 +15,7 @@ from extensions.obico.moonraker_obico import MoonrakerObico
 from extensions.octoeverywhere.octoeverywhere import Octoeverywhere
 from extensions.octoapp.octoapp import Octoapp
 from extensions.telegram_bot.moonraker_telegram_bot import MoonrakerTelegramBot
+from extensions.octoprint.octoprint import Octoprint
 
 InstanceType = TypeVar(
     "InstanceType",
@@ -24,4 +25,5 @@ InstanceType = TypeVar(
     MoonrakerObico,
     Octoeverywhere,
     Octoapp,
+    Octoprint,
 )
