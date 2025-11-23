@@ -62,16 +62,16 @@ class BackupService:
                 target_name
                 or f"{source_path.stem}_{self.timestamp}{source_path.suffix}"
             )
-            if target_path is not None:
-                backup_path = self._backup_root.joinpath(target_path, filename)
-            else:
-                backup_path = self._backup_root.joinpath(filename)
 
-            backup_path.mkdir(parents=True, exist_ok=True)
-            shutil.copy2(source_path, backup_path)
+            backup_dir = self._backup_root
+            if target_path is not None:
+                backup_dir = self._backup_root.joinpath(target_path)
+
+            backup_dir.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(source_path, backup_dir.joinpath(filename))
 
             Logger.print_ok(
-                f"Successfully backed up '{source_path}' to '{backup_path}'"
+                f"Successfully backed up '{source_path}' to '{backup_dir}'"
             )
             return True
 
@@ -109,7 +109,16 @@ class BackupService:
             else:
                 backup_path = self._backup_root.joinpath(backup_dir_name)
 
-            shutil.copytree(source_path, backup_path)
+            if backup_path.exists():
+                Logger.print_info(f"Reusing existing backup directory '{backup_path}'")
+
+            shutil.copytree(
+                source_path,
+                backup_path,
+                dirs_exist_ok=True,
+                symlinks=True,
+                ignore_dangling_symlinks=True,
+            )
 
             Logger.print_ok(
                 f"Successfully backed up '{source_path}' to '{backup_path}'"
