@@ -229,13 +229,3 @@ changes!**
   a [Ko-fi](https://ko-fi.com/dw__0) !
 * Last but not least: Thank you to all contributors and members of the Klipper
   Community who like and share this project!
-
-<hr>
-
-<h4 align="center">A special thank you to JetBrains for sponsoring this project
-with their incredible software!</h4>
-<p align="center">
-  <a href="https://www.jetbrains.com/community/opensource/#support" target="_blank">
-    <img src="https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.png" alt="JetBrains Logo (Main) logo." height="128">
-  </a>
-</p>
